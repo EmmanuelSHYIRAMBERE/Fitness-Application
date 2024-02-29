@@ -18,24 +18,24 @@ type Props = {
 }
 
 const Home = ({selectedLanguage,setSelectedPage}: Props) => {
-        const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)")
+    const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)")
         
-        function handleTranslation(key:string) {
+    function handleTranslation(key:string) {
       return i18next.t(key, {lng: `${selectedLanguage}`})
     }
 
   return (
     <section  id="home" className="gap-16 bg-gray-20 py-10 md:h-full md:pb-0" >
         <motion.div
-        className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"
-        onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
-      >
+          className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"
+          onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
+        >
 
             {/* MAIN HEADER */}
             <div className="z-10 mt-32 md:basis-3/5">
                 
-                {/* HEADINGS */}
-                <motion.div
+            {/* HEADINGS */}
+            <motion.div
             className="md:-mt-20"
             initial="hidden"
             whileInView="visible"
@@ -53,8 +53,8 @@ const Home = ({selectedLanguage,setSelectedPage}: Props) => {
                     <p className="mt-8 text-sm">{handleTranslation("HomePageText")}</p>
                 </motion.div>
 
-                {/* ACTIONS */}
-                <motion.div
+            {/* ACTIONS */}
+            <motion.div
             className="mt-8 flex items-center gap-8"
             initial="hidden"
             whileInView="visible"
