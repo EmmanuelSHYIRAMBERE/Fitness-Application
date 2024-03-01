@@ -1,5 +1,4 @@
 import useMediaQuery from "@/hooks/useMediaQuery"
-import i18next from "i18next";
 import { motion } from "framer-motion"
 
 import HomePageText from "@/assets/HomePageText.png"
@@ -10,25 +9,21 @@ import { SelectedPage } from "@/shared/types"
 import SponsorForbes from "@/assets/SponsorForbes.png"
 import SponsorFortune from "@/assets/SponsorFortune.png"
 import SponsorRedBull from "@/assets/SponsorRedBull.png"
+import { useTranslation } from "react-i18next"
 
-type Props = {
-    selectedLanguage: string
-    setSelectedPage: (value: SelectedPage) => void
 
-}
 
-const Home = ({selectedLanguage,setSelectedPage}: Props) => {
+const Home = () => {
     const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)")
+        const { t } = useTranslation();
+
         
-    function handleTranslation(key:string) {
-      return i18next.t(key, {lng: `${selectedLanguage}`})
-    }
+   
 
   return (
     <section  id="home" className="gap-16 bg-gray-20 py-10 md:h-full md:pb-0" >
         <motion.div
           className="mx-auto w-5/6 items-center justify-center md:flex md:h-5/6"
-          onViewportEnter={() => setSelectedPage(SelectedPage.Home)}
         >
 
             {/* MAIN HEADER */}
@@ -50,7 +45,7 @@ const Home = ({selectedLanguage,setSelectedPage}: Props) => {
                             <img src={HomePageText} alt="home-page-text" />
                         </div>
                     </div>
-                    <p className="mt-8 text-sm">{handleTranslation("HomePageText")}</p>
+                    <p className="mt-8 text-sm">{t("HomePageText")}</p>
                 </motion.div>
 
             {/* ACTIONS */}
@@ -64,11 +59,11 @@ const Home = ({selectedLanguage,setSelectedPage}: Props) => {
               hidden: { opacity: 0, x: -50 },
               visible: { opacity: 1, x: 0 },
             }}>
-                    <ActionButton setSelectedPage={setSelectedPage}>
-                     {handleTranslation("JoinNow")}
+                    <ActionButton>
+                     {t("JoinNow")}
                     </ActionButton>
-                    <AnchorLink className="text-sm font-bold text-primary-500 underline hover:text-secondary-500" onClick={()=> setSelectedPage(SelectedPage.ContactUs)} href={`${SelectedPage.ContactUs}`}>
-                        <p>{handleTranslation("LearnMore")}</p>
+                    <AnchorLink className="text-sm font-bold text-primary-500 underline hover:text-secondary-500" href={`${SelectedPage.ContactUs}`}>
+                        <p>{t("LearnMore")}</p>
                     </AnchorLink>
                 </motion.div>
             </div>

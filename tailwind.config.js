@@ -26,9 +26,9 @@ export default {
       },
       content: {
         "evolvetext": "url('./assets/EvolveText.png')",
-        "abstractwaves": "url('./assets/AbstractWaves.jpg')",
-        "sparkles": "url('./assets/Sparkles.jpg')",
-        "cirlces": "url('./assets/Circles.jpg')",
+        "abstractwaves": "url('./assets/AbstractWaves.png')",
+        "sparkles": "url('./assets/Sparkles.png')",
+        "cirlces": "url('./assets/Circles.png')",
       }
     },
     screens : {

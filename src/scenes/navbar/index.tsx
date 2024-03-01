@@ -1,36 +1,35 @@
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import i18next from "i18next";
 import { useState } from "react";
 
 import ActionButton from "@/shared/ActionButton";
-import Link from "@/scenes/Link";
 import Logo from "@/assets/Logo.png"
-import { SelectedPage } from "@/shared/types";
 import useMediaQuery from "@/hooks/useMediaQuery";
+import { useTranslation } from "react-i18next";
 
-type Props = {
-    isTopOfPage: boolean;
-    selectedPage: SelectedPage;
-    setSelectedPage: (value: SelectedPage) => void
-    selectedLanguage: string;
-    setSelectedLanguage: (value: string) => void
 
-}
 
-const Navbar = ({isTopOfPage,selectedPage, setSelectedPage,selectedLanguage, setSelectedLanguage}: Props) => {
+const Navbar = () => {
+    const { t, i18n } = useTranslation();
+
     const [isMenuToggled, setIsMenuToggled] = useState(false)
+    const [selectedLanguage, setSelectedLanguage] = useState(i18n.language);
+
     const flexBetween = "flex items-center justify-between"
     const isAboveMediumScreens = useMediaQuery("(min-width: 1060px)")
-    const navbarBackground = isTopOfPage ? "" : "bg-primary-100 drop-shadow"
-    
-    function handleTranslation(key:string) {
-      return i18next.t(key, {lng: `${selectedLanguage}`})
-    }
 
+
+ 
+
+  const handleLanguageChange = (selectedLang:string) => {
+    setSelectedLanguage(selectedLang);
+    i18n.changeLanguage(selectedLang);
+  };
+    
     
 
-  return <nav>
-    <div className={`${navbarBackground} ${flexBetween} fixed top-0 z-30 w-full`}>
+  return <>
+   <nav>
+    <div className={`${flexBetween} fixed top-0 z-30 w-full bg-primary-100`}>
             <div className={`${flexBetween} mx-auto w-5/6`}>
                 <div className={`${flexBetween} w-full gap-16`}>
 
@@ -41,20 +40,19 @@ const Navbar = ({isTopOfPage,selectedPage, setSelectedPage,selectedLanguage, set
                     {isAboveMediumScreens ? 
                     <div className={`${flexBetween} w-full`}>
                         <div className={`${flexBetween} gap-8 text-sm`}>
-                            <Link  page={handleTranslation("Home")} selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
-                            <Link  page={handleTranslation("Benefits")} selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
-                            <Link  page={handleTranslation("OurClasses")}  selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
-                            <Link  page={handleTranslation("ContactUs")}  selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
-                            <select value={selectedLanguage} onChange={(event)=> setSelectedLanguage(event.target.value)}>
+                        
+                        <a href="/">{t("Home")}</a>
+                        <a href="/benefits">{t("Benefits")}</a>
+                            <select value={selectedLanguage} onChange={(event)=> handleLanguageChange(event.target.value)}>
                               <option value="en">English</option>
                               <option value="kiny">Kinyarwanda</option>
                               <option value="fren">French</option>
                             </select>
                         </div>
                         <div className={`${flexBetween} gap-8 my-2`}>
-                            <p>{handleTranslation("SignIn")}</p>
-                            <ActionButton setSelectedPage={setSelectedPage}>
-                              {handleTranslation("BecomeMember")}
+                            <p>{t("SignIn")}</p>
+                            <ActionButton>
+                              {t("BecomeMember")}
                             </ActionButton>
                         </div>
                     </div>
@@ -81,11 +79,11 @@ const Navbar = ({isTopOfPage,selectedPage, setSelectedPage,selectedLanguage, set
             {/* MENU ITEMS */}
 
                         <div className="ml-[33%] flex flex-col gap-5 text-2xl">
-                            <Link  page={handleTranslation("Home")} selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
-                            <Link  page={handleTranslation("Benefits")} selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
-                            <Link  page={handleTranslation("OurClasses")}  selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
-                            <Link  page={handleTranslation("ContactUs")}  selectedPage={selectedPage} setSelectedPage={setSelectedPage} />
-                            <select value={selectedLanguage} onChange={(event)=> setSelectedLanguage(event.target.value)}  className="mr-20 text-sm">
+
+                            <a href="/">{t("Home")}</a>
+                        <a href="/benefits">{t("Benefits")}</a>
+
+                            <select value={selectedLanguage} onChange={(event)=> handleLanguageChange(event.target.value)}  className="mr-20 text-sm">
                               <option value="en">English</option>
                               <option value="kiny">Kinyarwanda</option>
                               <option value="fren">French</option>
@@ -96,6 +94,8 @@ const Navbar = ({isTopOfPage,selectedPage, setSelectedPage,selectedLanguage, set
           </div>
         )}
   </nav>
+
+        </>
 }
 
 export default Navbar

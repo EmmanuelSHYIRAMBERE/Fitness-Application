@@ -1,34 +1,37 @@
-import { useEffect, useState } from "react";
+import {
+  createBrowserRouter,
+  createRoutesFromChildren,
+  RouterProvider,
+  Route,
+  Outlet,
+} from "react-router-dom";
 
-import Navbar from "@/scenes/navbar";
-import { SelectedPage } from "@/shared/types";
-import Home from "./scenes/Home";
+import Navbar from "./scenes/navbar";
 import Benefits from "./scenes/Benefits";
+import Footer from "./scenes/footer/Footer";
+import Home from "./scenes/Home";
 
 
+const Layout = () => {
+  return (
+    <div>
+      <Navbar/>
+      <Outlet />
+      <Footer />
+    </div>
+  );
+};
+
+const routes = [
+  <Route path="/"  element={<Layout/>}>
+    <Route key= "home" index element={<Home/>}/>
+    <Route key="benefits" path="/benefits" element={<Benefits/>} />,
+  </Route>,
+];
+
+const router = createBrowserRouter(createRoutesFromChildren(routes));
 function App() {
-  const [selectedLanguage, setSelectedLanguage] = useState<string>("en")
-  const [selectedPage, setSelectedPage] = useState<SelectedPage>(SelectedPage.Home)
-  const [isTopOfPage, setIsTopOfPage] = useState<boolean>(true)
-
-  useEffect(()=>{
-      const handleScroll=()=>{
-        if (window.scrollY === 0) {
-          setIsTopOfPage(true)
-          setSelectedPage(SelectedPage.Home)
-        }
-
-        if (window.scrollY !== 0) setIsTopOfPage(false)
-      }
-    window.addEventListener("scroll", handleScroll)
-    return ()=> window.removeEventListener("scroll", handleScroll)
-    }, [])
-
-  return <div className="app bg-gray-20">
-    <Navbar isTopOfPage={isTopOfPage} selectedPage={selectedPage} setSelectedPage={setSelectedPage} selectedLanguage={selectedLanguage} setSelectedLanguage={setSelectedLanguage} />
-    <Home  setSelectedPage={setSelectedPage} selectedLanguage={selectedLanguage} />
-    <Benefits setSelectedPage={setSelectedPage} selectedLanguage={selectedLanguage} />
-  </div>;
+  return <RouterProvider router={router} />;
 }
 
 export default App;

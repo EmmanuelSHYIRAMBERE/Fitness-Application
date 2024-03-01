@@ -1,8 +1,12 @@
-import i18next from "i18next";
+import i18n from "i18next";
+import LanguageDetector from "i18next-browser-languagedetector/cjs";
+import { initReactI18next } from "react-i18next";
 
-i18next.init({
+i18n
+.use(LanguageDetector)
+.use(initReactI18next)
+.init({
     debug: true,
-    lng: "en",
     resources: {
         en: {
             translation: {
@@ -23,6 +27,10 @@ i18next.init({
                 Benefit2Texts: "Find a class that fits your interests and goals, from high-intensity workouts to yoga and pilates.",
                 Benefit3Title: "Expert and Pro Trainers",
                 Benefit3Texts: "Get personalized guidance and support from experienced and certified trainers who can help you reach your full potential.",
+                BenefitPageSemititle: "MILLIONS OF HAPPY MEMBERS GETTING",
+                Fit: "FIT",
+                BenefitTestimonyText1: "The workouts were challenging but always engaging, and the supportive community kept me motivated even on tough days. This experience has completely changed my perspective on health and fitness. I'm excited to see what new goals I can conquer, and I'm grateful for the program for giving me the tools and confidence to reach them.",
+                BenefitTestimonyText2: "Not only did I shred 15 pounds, but I also built unexpected muscle definition and discovered a newfound love for running. Now, I wake up with a spring in my step, my sleep is deeper, and I can finally keep up with my kids on their bike rides.",
             }
         },
         kiny: {
@@ -44,6 +52,10 @@ i18next.init({
                 Benefit2Texts: "Hitamo icyiciro wishimiye kandi gihwanye n'inzozi zawe, yaba imyitozo ihambaye muri yoga ndetse niyagufasha kumva umerewe neza.",
                 Benefit3Title: "Abatoza binzobere kandi bashoboye",
                 Benefit3Texts: "Gufasha mu gukomeza kubona inama zatuma ugera ku ntego yawe z'abatoza b'umwuga babiherewe imyamyabushobozi kandi babizobereye.",
+                BenefitPageSemititle: "MILIYONI Z'ABANYAMURYANGO BISHIMIRA",
+                Fit: "KUBERWA",
+                BenefitTestimonyText1: "Imyitozo yabanje kugorana ariko itarambirana, ndetse abari bashinzwe kudufasha bagahora badutera umurava iyo twabaga twacitse inege cyangwa turi mu bihe bitari bitworoheye. Ibyo byanyongereye ubunararibonye muri siporo ndetse bihindura ubuzima bwanjye ndetse umubiri wagize ubuzima bwiza. Nishimiye kubona haribyo nakora nkagera ku ntego yanjye, kandi nejejwe no kuba iyi gahunda yaramaye ibikoresho n'icyizere byatumye mbigeraho ",
+                BenefitTestimonyText2: "Usibye kuba narabashije kugabanukaho ibiro birenga 15, nubatse umubiri wanjye kuburyo byatumye mbona izindi mbaraga zankundishije siporo yo kwiruka. None ubu, mbyuka mfite imbaraga n'umurava, kandi mba nasinziriye neza, none ubu mbasha kugendana n'abana banjye iyo batwaye amagare yabo kandi ntibansige.",
             }
         },
         fren: {
@@ -65,7 +77,13 @@ i18next.init({
                 Benefit2Texts: "Trouvez un cours qui correspond à vos intérêts et objectifs, des entraînements intensifs au yoga et pilates.",
                 Benefit3Title: "Entraîneurs Experts et Professionnels",
                 Benefit3Texts: "Obtenez des conseils personnalisés et un soutien de la part d'entraîneurs expérimentés et certifiés qui peuvent vous aider à atteindre votre plein potentiel.",
+                BenefitPageSemititle: "DES MILLIONS DE MEMBRES HEUREUX OBTIENNENT",
+                Fit: "EN FORME",
+                BenefitTestimonyText1:"Les entraînements étaient stimulants mais toujours captivants, et la communauté solidaire me maintenait motivé même les jours difficiles. Cette expérience a complètement changé ma perspective sur la santé et le fitness. Je suis impatient de voir quels nouveaux objectifs je peux atteindre, et je suis reconnaissant pour le programme de me donner les outils et la confiance pour les atteindre.",
+                BenefitTestimonyText2:"Non seulement j'ai perdu 15 livres, mais j'ai aussi développé une définition musculaire inattendue et découvert un nouvel amour pour la course. Maintenant, je me réveille avec un pas sautillant, mon sommeil est plus profond, et je peux enfin suivre mes enfants lors de leurs balades à vélo.",
             }
         },
     }
 })
+
+export default i18n
