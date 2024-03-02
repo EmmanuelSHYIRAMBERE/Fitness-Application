@@ -43,6 +43,8 @@ const Navbar = () => {
                         
                         <a href="/">{t("Home")}</a>
                         <a href="/benefits">{t("Benefits")}</a>
+                        <a href="/ourclasses">Our Classes</a>
+                        <a href="/contactus">Contact Us</a>
                             <select value={selectedLanguage} onChange={(event)=> handleLanguageChange(event.target.value)}>
                               <option value="en">English</option>
                               <option value="kiny">Kinyarwanda</option>
@@ -82,6 +84,8 @@ const Navbar = () => {
 
                             <a href="/">{t("Home")}</a>
                         <a href="/benefits">{t("Benefits")}</a>
+                        <a href="/ourclasses">Our Classes</a>
+                        <a href="/contactus">Contact Us</a>
 
                             <select value={selectedLanguage} onChange={(event)=> handleLanguageChange(event.target.value)}  className="mr-20 text-sm">
                               <option value="en">English</option>

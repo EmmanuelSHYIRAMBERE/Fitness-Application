@@ -52,10 +52,10 @@ i18n
                 Benefit2Texts: "Hitamo icyiciro wishimiye kandi gihwanye n'inzozi zawe, yaba imyitozo ihambaye muri yoga ndetse niyagufasha kumva umerewe neza.",
                 Benefit3Title: "Abatoza binzobere kandi bashoboye",
                 Benefit3Texts: "Gufasha mu gukomeza kubona inama zatuma ugera ku ntego yawe z'abatoza b'umwuga babiherewe imyamyabushobozi kandi babizobereye.",
-                BenefitPageSemititle: "MILIYONI Z'ABANYAMURYANGO BISHIMIRA",
-                Fit: "KUBERWA",
+                BenefitPageSemititle: "ABANYAMURYANGO MILIYONI BISHIMIRA KUGIRA",
+                Fit: "UMUBIRI URINGANIYE",
                 BenefitTestimonyText1: "Imyitozo yabanje kugorana ariko itarambirana, ndetse abari bashinzwe kudufasha bagahora badutera umurava iyo twabaga twacitse inege cyangwa turi mu bihe bitari bitworoheye. Ibyo byanyongereye ubunararibonye muri siporo ndetse bihindura ubuzima bwanjye ndetse umubiri wagize ubuzima bwiza. Nishimiye kubona haribyo nakora nkagera ku ntego yanjye, kandi nejejwe no kuba iyi gahunda yaramaye ibikoresho n'icyizere byatumye mbigeraho ",
-                BenefitTestimonyText2: "Usibye kuba narabashije kugabanukaho ibiro birenga 15, nubatse umubiri wanjye kuburyo byatumye mbona izindi mbaraga zankundishije siporo yo kwiruka. None ubu, mbyuka mfite imbaraga n'umurava, kandi mba nasinziriye neza, none ubu mbasha kugendana n'abana banjye iyo batwaye amagare yabo kandi ntibansige.",
+                BenefitTestimonyText2: "Usibye kuba narabashije kugabanukaho ibiro birenga 15, nubatse umubiri wanjye kuburyo byatumye mbona izindi mbaraga zankundishije siporo yo kwiruka. None ubu, mbyuka mfite imbaraga n'umurava, kandi mba nasinziriye neza, kuburyo ubu mbasha kugendana n'abana banjye batwaye amagare yabo kandi ntibansige.",
             }
         },
         fren: {
